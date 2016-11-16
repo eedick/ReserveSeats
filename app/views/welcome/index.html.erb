@@ -1,3 +1,8 @@
 <div class="jumbotron">
-	<h1>Welcome!</h1>
+	<center><h1>Welcome!</h1>
+		<% if user_signed_in? %>
+			<%= link_to "Add Restaurant", new_restaurant_path %>
+		<% else %>
+			<%= link_to "Sign Up", new_user_registration_path %>
+		<% end %></center> 
 </div>

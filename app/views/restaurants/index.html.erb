@@ -1,1 +1,17 @@
-<h1>Hello</h1>
+<h1>Your Restaurants</h1>
+
+<div id="restaurants">
+	<% @restaurants.each do |restaurant| %>
+		<div class="panel-body">
+			<%= restaurant.title %><br />
+	    <%= restaurant.description %><br />
+	       <strong><%= restaurant.user.email if restaurant.user %></strong> 
+	     
+
+			<% if current_user %>
+			  <%= link_to 'Edit', edit_restaurant_path(current_user) %>
+			  <%= link_to 'Destroy', restaurant, method: :delete %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
